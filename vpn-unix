@@ -1,0 +1,18 @@
+#файл должен находиться в /etc/ppp/peers/vpn-unix
+#имя файла vpn-unix
+
+pty "pptp 99.99.99.99 --nolaunchpppd" #здесь измените адрес сервера, на нужный
+unit 99
+require-mschap-v2
+require-mppe-128
+user test #имя пользователя
+password "test" #пароль
+nodeflate
+nobsdcomp
+noauth
+#defaultroute
+nodefaultroute  #отключаем маршрут по умолчанию,
+                #если он вам нужен - замените на defaultroute
+persist #пере подключаться при обрыве
+maxfail 10 #количество попыток пере подключения
+holdoff 10 #интервал между подключениями
